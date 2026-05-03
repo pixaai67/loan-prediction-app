@@ -56,7 +56,8 @@ cat_pipeline=Pipeline([
     ("onehot",OneHotEncoder(handle_unknown="ignore",drop="first"))
 ])
 bin_pipeline=Pipeline([
-    ("imputer", SimpleImputer(strategy="most_frequent"))
+    ("imputer", SimpleImputer(strategy="most_frequent")),
+    ("scaler",StandardScaler())
 ])
 preprocessor=ColumnTransformer([
     ("num",num_pipeline,num_cls),
